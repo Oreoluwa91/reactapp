@@ -1,17 +1,18 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faSignin } from '@fortawesome/free-solid-svg-icons'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter, Route } from 'react-router-dom'
 
 
 class Navbar extends React.Component {
     signout = () => {
-        sessionStorage.removeitem("token")
+        sessionStorage.removeItem("token")
     }
     auth = () => {
-        const token = sessionStorage.getitem("token")
+        const token = sessionStorage.getItem("token")
         let menu = (
-            <ul>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
+            
                 <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                         Offers
@@ -31,10 +32,11 @@ class Navbar extends React.Component {
                     <NavLink className="nav-link" to="/signup">Signup</NavLink>
                 </li>
             </ul>
+        
         )
-        if (token !==null){
-            menu = (
-                <ul>
+        if (token !== null) {
+            menu = 
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 ml-auto">
                     <li className="nav-item">
                         <NavLink className="nav-link" to="/account">Account</NavLink>
                     </li>
@@ -43,9 +45,10 @@ class Navbar extends React.Component {
                         <NavLink className="nav-link" to="/signin" onClick={this.signout}>Signout</NavLink>
                     </li>
                 </ul>
-            )
+            
         }
 
+        return menu
     }
 
     render() {
@@ -65,30 +68,8 @@ class Navbar extends React.Component {
 
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent ">
-                        <ul className="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll" >
-                            <li className="nav-item active">
-                                <a className="nav-link" href="#"><FontAwesomeIcon icon={faHome} /> Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                    Offers
-                                </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/signin">Signin</NavLink>
-                            </li>
-
-                            <li className="nav-item">
-                                <NavLink className="nav-link" to="/signup">Signup</NavLink>
-                            </li>
-                        </ul>
-
+                        
+                       {this.auth()}
                     </div>
                 </nav>
             </React.Fragment>
@@ -97,4 +78,4 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

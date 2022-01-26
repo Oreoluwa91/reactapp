@@ -7,6 +7,7 @@ import Signup from './signup';
 import Dashboard from './dashboard';
 import axios from "axios";
 import Swal from "sweetalert2";
+import Account from "./account"
 
 class Mrken extends React.Component {
     

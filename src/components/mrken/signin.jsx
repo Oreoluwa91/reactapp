@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faSignin , faUser , faEnvelope , faLock} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
 import Swal from "sweetalert2"
+import { withRouter } from 'react-router';
+
 
 
 
@@ -17,10 +19,12 @@ class Signin extends React.Component {
           if (response.data !== 0) {
             Swal.fire({
               title: "Success",
-              text: "Signup was successful",
+              text: "Signin was successful",
               icon: "success",
               confirmButtonText: "Ok"
             })
+            const token = response.data.token
+            sessionStorage.setItem("token", token)
             this.setState({submitted:true, authenticated:true})
             this.props.history.push("/dashboard")
           }else{
@@ -68,4 +72,4 @@ class Signin extends React.Component {
     }
 }
 
-export default (Signin);
+export default withRouter(Signin);
