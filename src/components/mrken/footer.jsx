@@ -9,7 +9,7 @@ class Footer extends React.Component {
 
         return (
 
-            <footer className="page-footer font-small unique-color-dark bg-info text-white" >
+            <footer className="page-footer font-small unique-color-dark bg-dark text-white" >
 
                 <div style={{ backgroundColor: "green" }}>
                     <div className="container">
