@@ -36,7 +36,7 @@ class Body extends React.Component {
                                                 </div>
                                     </div>
                                     <div class="carousel-item">
-                                                <img src="Images/2040033.pnggit" className="d-block w-100" alt="..."/>
+                                                <img src="Images/2040033.png" className="d-block w-100" alt="..."/>
                                                     <div class="carousel-caption d-none d-md-block">
                                                         <h5>Third slide label</h5>
                                                         <p>Some representative placeholder content for the third slide.</p>
