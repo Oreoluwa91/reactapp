@@ -52,7 +52,7 @@ class Navbar extends React.Component {
                                 <a className="nav-link"><FontAwesomeIcon icon= {faUser}/ >Account</a>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" to="/signin"><FontAwesomeIcon icon= {faSignOutAlt}/ >Sign-Out</NavLink>
+                                <NavLink className="nav-link" to="/signin" onClick={this.signout}><FontAwesomeIcon icon= {faSignOutAlt}/ >Sign-Out</NavLink>
                             </li>
         </ul>
 

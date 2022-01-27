@@ -16,7 +16,7 @@ class Signin extends React.Component {
         const post = {email, password}
         axios.post("https://reqres.in/api/login", post).then((response) => {
           console.log("Server Response loading...", response.data)
-          if (response.data !== 0) {
+          if (response.data !==0) {
             Swal.fire({
               title: "Success",
               text: "Signin was successful",
@@ -27,7 +27,7 @@ class Signin extends React.Component {
             sessionStorage.setItem("token", token)
             this.setState({submitted:true, authenticated:true})
             this.props.history.push("/dashboard")
-          }else{
+          }else {
             Swal.fire({
               title: "Error",
               text: "Invalid Email or Password",
@@ -52,11 +52,11 @@ class Signin extends React.Component {
                    
                     <div className="input-group mb-4">
                         <div className="input-group-prepend"><span className="input-group-text"><FontAwesomeIcon icon={faEnvelope} /></span></div>
-                        <input type="email" name="email" id="email" className="form-control" value= {email} placeholder="Email" onChange={this.props.onHandleChange}/>
+                        <input type="email" name="email" id="email" className="form-control" value= {email} placeholder="Email" onChange={this.props.onHandleChange} />
                     </div>
                     <div className="input-group mb-4">
                         <div className="input-group-prepend"><span className="input-group-text"><FontAwesomeIcon icon={faLock} /></span></div>
-                        <input type="password" name="password" id="password" value={password} className="form-control"placeholder="Password" onChange={this.props.onHandleChange}/>
+                        <input type="password" name="password" id="password" value={password} className="form-control"placeholder="Password" onChange={this.props.onHandleChange} />
                     </div>
                    
                     <div className="input-group mb-4">
